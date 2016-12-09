@@ -14,44 +14,41 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kuramov-wildfly-jsf2.util;
+package ru.kuramov.data;
 
-import java.util.logging.Logger;
-
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
+import javax.enterprise.event.Observes;
+import javax.enterprise.event.Reception;
 import javax.enterprise.inject.Produces;
-import javax.enterprise.inject.spi.InjectionPoint;
-import javax.faces.context.FacesContext;
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
+import javax.inject.Named;
+import java.util.List;
 
-/**
- * This class uses CDI to alias Java EE resources, such as the persistence context, to CDI beans
- * 
- * <p>
- * Example injection on a managed bean field:
- * </p>
- * 
- * <pre>
- * &#064;Inject
- * private EntityManager em;
- * </pre>
- */
-public class Resources {
+import ru.kuramov.model.Member;
 
+@RequestScoped
+public class MemberListProducer {
+
+    @Inject
+    private MemberRepository memberRepository;
+
+    private List<Member> members;
+
+    // @Named provides access the return value via the EL variable name "members" in the UI (e.g.
+    // Facelets or JSP view)
     @Produces
-    @PersistenceContext
-    private EntityManager em;
-
-    @Produces
-    public Logger produceLog(InjectionPoint injectionPoint) {
-        return Logger.getLogger(injectionPoint.getMember().getDeclaringClass().getName());
+    @Named
+    public List<Member> getMembers() {
+        return members;
     }
 
-    @Produces
-    @RequestScoped
-    public FacesContext produceFacesContext() {
-        return FacesContext.getCurrentInstance();
+    public void onMemberListChanged(@Observes(notifyObserver = Reception.IF_EXISTS) final Member member) {
+        retrieveAllMembersOrderedByName();
     }
 
+    @PostConstruct
+    public void retrieveAllMembersOrderedByName() {
+        members = memberRepository.findAllOrderedByName();
+    }
 }

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kuramov-wildfly-jsf2.test;
+package ru.kuramov.test;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -24,9 +24,9 @@ import javax.inject.Inject;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit.Arquillian;
-import ru.kuramov-wildfly-jsf2.model.Member;
-import ru.kuramov-wildfly-jsf2.service.MemberRegistration;
-import ru.kuramov-wildfly-jsf2.util.Resources;
+import ru.kuramov.model.Member;
+import ru.kuramov.service.MemberRegistration;
+import ru.kuramov.util.Resources;
 import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;

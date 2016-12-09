@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kuramov-wildfly-jsf2.data;
+package ru.kuramov.data;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -24,7 +24,7 @@ import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-import ru.kuramov-wildfly-jsf2.model.Member;
+import ru.kuramov.model.Member;
 
 @ApplicationScoped
 public class MemberRepository {

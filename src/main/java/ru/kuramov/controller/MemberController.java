@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kuramov-wildfly-jsf2.controller;
+package ru.kuramov.controller;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
@@ -24,8 +24,9 @@ import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import ru.kuramov-wildfly-jsf2.model.Member;
-import ru.kuramov-wildfly-jsf2.service.MemberRegistration;
+import ru.kuramov.model.Member;
+import ru.kuramov.service.MemberRegistration;
+
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
@@ -50,6 +51,9 @@ public class MemberController {
     }
 
     public void register() throws Exception {
+
+
+
         try {
             memberRegistration.register(newMember);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");

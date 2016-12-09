@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kuramov-wildfly-jsf2.model;
+package ru.kuramov.model;
 
 import java.io.Serializable;
 

@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package ru.kuramov-wildfly-jsf2.rest;
+package ru.kuramov.rest;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -40,9 +40,9 @@ import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import ru.kuramov-wildfly-jsf2.data.MemberRepository;
-import ru.kuramov-wildfly-jsf2.model.Member;
-import ru.kuramov-wildfly-jsf2.service.MemberRegistration;
+import ru.kuramov.data.MemberRepository;
+import ru.kuramov.model.Member;
+import ru.kuramov.service.MemberRegistration;
 
 /**
  * JAX-RS Example
