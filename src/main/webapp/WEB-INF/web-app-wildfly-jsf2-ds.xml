@@ -26,11 +26,11 @@
     <datasource jndi-name="java:jboss/datasources/web-app-wildfly-jsf2DS"
         pool-name="web-app-wildfly-jsf2" enabled="true"
         use-java-context="true">
-        <connection-url>jdbc:h2:mem:web-app-wildfly-jsf2;DB_CLOSE_ON_EXIT=FALSE;DB_CLOSE_DELAY=-1</connection-url>
-        <driver>h2</driver>
+        <connection-url>jdbc:mysql://localhost:3306/Catalog_IDEA?useSSL=false</connection-url>
+        <driver>mysql</driver>
         <security>
-            <user-name>sa</user-name>
-            <password>sa</password>
+            <user-name>Kuramov</user-name>
+            <password>Rehfvif</password>
         </security>
     </datasource>
 </datasources>
