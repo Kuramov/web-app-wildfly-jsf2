@@ -27,6 +27,8 @@ import javax.inject.Named;
 import ru.kuramov.model.Member;
 import ru.kuramov.service.MemberRegistration;
 
+import java.util.function.Consumer;
+
 
 // The @Model stereotype is a convenience mechanism to make this a request-scoped bean that has an
 // EL name
@@ -51,9 +53,6 @@ public class MemberController {
     }
 
     public void register() throws Exception {
-
-
-
         try {
             memberRegistration.register(newMember);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful");
