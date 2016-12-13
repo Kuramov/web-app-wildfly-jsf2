@@ -57,4 +57,5 @@ public class MemberRepository {
         criteria.select(member).orderBy(cb.asc(member.get("name")));
         return em.createQuery(criteria).getResultList();
     }
+
 }
