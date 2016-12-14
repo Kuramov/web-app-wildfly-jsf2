@@ -20,16 +20,50 @@
    xsi:schemaLocation="
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-   <persistence-unit name="catalog_idea_PU">
+   <persistence-unit name="catalog_idea_PU" transaction-type="JTA">
       <!-- If you are running in a production environment, add a managed 
          data source, this example data source is just for development and testing! -->
       <!-- The datasource is deployed as WEB-INF/web-app-wildfly-jsf2-ds.xml, you
          can find it in the source at src/main/webapp/WEB-INF/web-app-wildfly-jsf2-ds.xml -->
       <jta-data-source>java:jboss/datasources/web-app-wildfly-jsf2DS</jta-data-source>
+      <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+      <!-- class for  persistence-unit -->
+      <class>ru.kuramov.model.Article</class>
+      <class>ru.kuramov.model.Catalog</class>
+      <class>ru.kuramov.model.Edition</class>
+      <class>ru.kuramov.model.Member</class>
+      <class>ru.kuramov.model.Section</class>
+
       <properties>
          <!-- Properties for Hibernate -->
-         <property name="hibernate.hbm2ddl.auto" value="create" />
-         <property name="hibernate.show_sql" value="false" />
+         <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+         <property name="hibernate.show_sql" value="true" />
+         <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+         <property name="javax.persistence.sql-load-script-source" value="import.sql"/>
+      </properties>
+   </persistence-unit>
+   <persistence-unit name="Catalog_PU"  transaction-type="JTA">
+      <!-- If you are running in a production environment, add a managed
+         data source, this example data source is just for development and testing! -->
+      <!-- The datasource is deployed as WEB-INF/web-app-wildfly-jsf2-ds.xml, you
+         can find it in the source at src/main/webapp/WEB-INF/web-app-wildfly-jsf2-ds.xml -->
+      <jta-data-source>java:jboss/datasources/Catalog_DS</jta-data-source>
+      <exclude-unlisted-classes>true</exclude-unlisted-classes>
+
+      <!-- class for  persistence-unit -->
+      <class>ru.kuramov.modelNB.Article</class>
+      <class>ru.kuramov.modelNB.Catalog</class>
+      <class>ru.kuramov.modelNB.Edition</class>
+      <class>ru.kuramov.modelNB.Section</class>
+
+      <properties>
+         <!-- Properties for Hibernate -->
+         <!--<property name="hibernate.hbm2ddl.auto" value="create-drop" />-->
+         <property name="hibernate.show_sql" value="true" />
+         <!-- multi persistence unit too create error drop - create -->
+         <!-- JPA annotation -->
+         <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
       </properties>
    </persistence-unit>
 </persistence>

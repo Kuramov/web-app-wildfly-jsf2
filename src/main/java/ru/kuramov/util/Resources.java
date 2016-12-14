@@ -22,6 +22,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.context.FacesContext;
+import javax.inject.Qualifier;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -40,8 +41,14 @@ import javax.persistence.PersistenceContext;
 public class Resources {
 
     @Produces
-    @PersistenceContext
+    @PersistenceContext (unitName = "catalog_idea_PU")
     private EntityManager em;
+
+    @Produces
+    @PersistenceContext(unitName = "Catalog_PU")
+    @QualifierWebApplication1PU
+    private EntityManager emPU;
+
 
     @Produces
     public Logger produceLog(InjectionPoint injectionPoint) {

@@ -33,5 +33,15 @@
             <password>Rehfvif</password>
         </security>
     </datasource>
+    <datasource jndi-name="java:jboss/datasources/Catalog_DS"
+                pool-name="web-app-wildfly-jsf2" enabled="true"
+                use-java-context="true">
+        <connection-url>jdbc:mysql://localhost:3306/CATALOG_schema?useSSL=false</connection-url>
+        <driver>mysql</driver>
+        <security>
+            <user-name>Kuramov</user-name>
+            <password>Rehfvif</password>
+        </security>
+    </datasource>
 </datasources>
  

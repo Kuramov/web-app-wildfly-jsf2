@@ -57,6 +57,9 @@
         <!-- maven-compiler-plugin -->
         <!--<maven.compiler.target>1.8</maven.compiler.target>-->
         <!--<maven.compiler.source>1.8</maven.compiler.source>-->
+
+        <!-- Primefaces version -->
+        <version.primefaces>6.0</version.primefaces>
     </properties>
 
 
@@ -193,6 +196,13 @@
             <groupId>org.jboss.arquillian.protocol</groupId>
             <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!-- Primefaces 6.0 -->
+        <dependency>
+            <groupId>org.primefaces</groupId>
+            <artifactId>primefaces</artifactId>
+            <version>${version.primefaces}</version>
         </dependency>
 
     </dependencies>
