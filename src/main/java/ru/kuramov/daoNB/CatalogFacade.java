@@ -7,23 +7,21 @@ package ru.kuramov.daoNB;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 import ru.kuramov.modelNB.Catalog;
-import ru.kuramov.util.QualifierWebApplication1PU;
+import ru.kuramov.util.QualifierCatalog_PU;
 
 /**
  *
  * @author valerii
  */
 
-@Named
 @Stateless
 public class CatalogFacade extends AbstractFacade<Catalog> {
 
     @Inject
-    @QualifierWebApplication1PU
+    @QualifierCatalog_PU
     private EntityManager em;
 
     @Override

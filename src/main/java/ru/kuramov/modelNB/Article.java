@@ -28,15 +28,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Article.findAll", query = "SELECT a FROM ArticleEntity a"),
-    @NamedQuery(name = "Article.findByIdArticle", query = "SELECT a FROM ArticleEntity a WHERE a.idArticle = :idArticle"),
+    @NamedQuery(name = "Article.findByIdArticle", query = "SELECT a FROM ArticleEntity a WHERE a.id = :idArticle"),
     @NamedQuery(name = "Article.findByTitle", query = "SELECT a FROM ArticleEntity a WHERE a.title = :title")})
-public class Article implements Serializable {
+public class Article extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    private Integer idArticle;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Basic(optional = false)
+//    private Integer idArticle;
     @Size(max = 150)
     private String title;
     @JoinColumn(name = "Section_idSection", referencedColumnName = "idSection")
@@ -46,16 +46,16 @@ public class Article implements Serializable {
     public Article() {
     }
 
-    public Article(Integer idArticle) {
-        this.idArticle = idArticle;
+    public Article(Long idArticle) {
+        id = idArticle;
     }
 
-    public Integer getIdArticle() {
-        return idArticle;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdArticle(Integer idArticle) {
-        this.idArticle = idArticle;
+    public void setId(Long idArticle) {
+        id = idArticle;
     }
 
     public String getTitle() {
@@ -77,7 +77,7 @@ public class Article implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idArticle != null ? idArticle.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -88,7 +88,7 @@ public class Article implements Serializable {
             return false;
         }
         Article other = (Article) object;
-        if ((this.idArticle == null && other.idArticle != null) || (this.idArticle != null && !this.idArticle.equals(other.idArticle))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -96,7 +96,7 @@ public class Article implements Serializable {
 
     @Override
     public String toString() {
-        return "ru.kuramov.model.Article[ idArticle=" + idArticle + " ]";
+        return "ru.kuramov.model.Article[ idArticle=" + id + " ]";
     }
     
 }

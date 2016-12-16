@@ -22,7 +22,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
 import javax.faces.context.FacesContext;
-import javax.inject.Qualifier;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -46,7 +45,7 @@ public class Resources {
 
     @Produces
     @PersistenceContext(unitName = "Catalog_PU")
-    @QualifierWebApplication1PU
+    @QualifierCatalog_PU
     private EntityManager emPU;
 
 

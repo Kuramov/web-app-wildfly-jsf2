@@ -4,8 +4,19 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/basicTemplate.xhtml">
-    <ui:define name="content">
-        <h1>Welcome to WildFly!</h1>
+    <ui:define name="content_">
+        <h1>Find article:</h1>
+
+        <p:panel header="Find article" footer="find article" style="margin-bottom: 20px">
+            <h:form>
+                <p:panelGrid columns="2" style="width: 100%">
+                    <p:outputLabel value="Enter id article:" for="idArticle"/>
+                    <p:inputText id="idArticle" value="#{articleController.idArticle}" style="width: 95%"/>
+                </p:panelGrid>
+                <p:spacer height="10" width="10"/>
+                <p:commandButton ajax="false" action="#{articleController.findArticle(articleController.idArticle)}" style="margin-bottom: 20px; margin-top: 20px;" value="Find"/>
+            </h:form>
+        </p:panel>
 
         <p:panelGrid columns="2" style="margin-bottom: 20px">
             <p:outputLabel value="Catalog list:"/>

@@ -16,4 +16,10 @@
 --
 
 -- You can use this file to load seed data into the database using SQL statements
-insert into Member (id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212') 
+insert into Catalog_IDEA.Member (id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212');
+
+insert into CATALOG_schema.CATALOG_ (jornal) values ('Oracle WebLogic');
+insert into CATALOG_schema.EDITION_ (edition, Catalog_idCatalog) values ('Arun Gupta', 1);
+insert into CATALOG_schema.SECTION_ (sectionname, Edition_idEdition) values ('JVM Group', 1);
+insert into CATALOG_schema.ARTICLE_ (title, Section_idSection) values ('Oracle WebLogic', 1);
+insert into CATALOG_schema.ARTICLE_ (title, Section_idSection) values ('Jboss hibernate', 1);

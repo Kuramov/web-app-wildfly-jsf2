@@ -4,8 +4,17 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:p="http://primefaces.org/ui"
                 template="/WEB-INF/templates/basicTemplate.xhtml">
-    <ui:define name="content">
-        <h1>Welcome to WildFly!</h1>
+    <ui:define name="content_">
+        <h1>Article information:</h1>
+
+        <p:panel header="Article information" footer="article information" style="margin-bottom: 20px">
+            <p:panelGrid columns="2">
+                <p:outputLabel value="Id:"/>
+                <p:outputLabel value="#{articleController.article.id}"/>
+                <p:outputLabel value="Title:"/>
+                <p:outputLabel value="#{articleController.article.title}"/>
+            </p:panelGrid>
+        </p:panel>
 
         <p:panelGrid columns="2" style="margin-bottom: 20px">
             <p:outputLabel value="Catalog list:"/>

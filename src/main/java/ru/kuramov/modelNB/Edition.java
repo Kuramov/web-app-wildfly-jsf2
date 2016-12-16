@@ -45,7 +45,7 @@ public class Edition implements Serializable {
     private String edition;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "editionidEdition")
     private List<Section> sectionList;
-    @JoinColumn(name = "Catalog_idCatalog", referencedColumnName = "idCatalog")
+    @JoinColumn(name = "Catalog_idCatalog", referencedColumnName = "id")
     @ManyToOne(optional = false)
     private Catalog catalogidCatalog;
 

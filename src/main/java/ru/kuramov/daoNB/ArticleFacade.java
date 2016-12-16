@@ -8,9 +8,9 @@ package ru.kuramov.daoNB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+
 import ru.kuramov.modelNB.Article;
-import ru.kuramov.util.QualifierWebApplication1PU;
+import ru.kuramov.util.QualifierCatalog_PU;
 
 /**
  *
@@ -20,7 +20,7 @@ import ru.kuramov.util.QualifierWebApplication1PU;
 public class ArticleFacade extends AbstractFacade<Article> {
 
     @Inject
-    @QualifierWebApplication1PU
+    @QualifierCatalog_PU
     private EntityManager em;
 
     @Override

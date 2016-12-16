@@ -30,15 +30,15 @@ import javax.xml.bind.annotation.XmlTransient;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Catalog.findAll", query = "SELECT c FROM CatalogEntity c"),
-    @NamedQuery(name = "Catalog.findByIdCatalog", query = "SELECT c FROM CatalogEntity c WHERE c.idCatalog = :idCatalog"),
+    @NamedQuery(name = "Catalog.findByIdCatalog", query = "SELECT c FROM CatalogEntity c WHERE c.id = :idCatalog"),
     @NamedQuery(name = "Catalog.findByJornal", query = "SELECT c FROM CatalogEntity c WHERE c.jornal = :jornal")})
-public class Catalog implements Serializable {
+public class Catalog extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    private Integer idCatalog;
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Basic(optional = false)
+//    private Integer idCatalog;
     @Size(max = 100)
     private String jornal;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "catalogidCatalog")
@@ -47,16 +47,16 @@ public class Catalog implements Serializable {
     public Catalog() {
     }
 
-    public Catalog(Integer idCatalog) {
-        this.idCatalog = idCatalog;
+    public Catalog(Long idCatalog) {
+        id = idCatalog;
     }
 
-    public Integer getIdCatalog() {
-        return idCatalog;
+    public Long getId() {
+        return id;
     }
 
-    public void setIdCatalog(Integer idCatalog) {
-        this.idCatalog = idCatalog;
+    public void setId(Long idCatalog) {
+        id = idCatalog;
     }
 
     public String getJornal() {
@@ -79,7 +79,7 @@ public class Catalog implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (idCatalog != null ? idCatalog.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -90,7 +90,7 @@ public class Catalog implements Serializable {
             return false;
         }
         Catalog other = (Catalog) object;
-        if ((this.idCatalog == null && other.idCatalog != null) || (this.idCatalog != null && !this.idCatalog.equals(other.idCatalog))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -98,7 +98,7 @@ public class Catalog implements Serializable {
 
     @Override
     public String toString() {
-        return "ru.kuramov.model.Catalog[ idCatalog=" + idCatalog + " ]";
+        return "ru.kuramov.model.Catalog[ idCatalog=" + id + " ]";
     }
     
 }
